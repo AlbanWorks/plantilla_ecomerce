@@ -1,0 +1,210 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:sans-serif;
+    --line-color: rgb(182, 182, 182);
+    --priceWidth: 40px;
+    --buttonWidth: 35px;
+}
+.TitleContainer{
+    color: white;
+    background-image: linear-gradient(45deg, var(--color1), var(--color1Light));
+    width: 100%;
+    height: 60px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px rgb(190, 190, 190);
+    
+}
+.Title{
+    margin: 0;
+    padding-left:15px;
+    font-size: 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.479);
+}
+.menu{
+    padding: 10px;
+}
+
+.CategoryLabel{
+    padding: 5px;
+    background-color: var(--color1Light);
+    color: white;
+    border-bottom: 1px solid var(--line-color);   
+}
+.fieldLabels{
+    display: flex;
+    width: 100%;
+    font-size: 12px;
+    border-bottom: 1px solid var(--line-color); 
+}
+.fieldLabels p{
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 5px 0 5px 0;
+}
+.titleLabel{
+flex-grow: 1;
+}
+.priceLabel{
+    width: calc(1px + var(--priceWidth));
+}
+.fotoLabel{
+    width: calc(1px + var(--buttonWidth));
+}
+.stockLabel{
+    width: calc(1px + var(--buttonWidth));
+}
+.deleteLabel{
+    width: calc(1px + var(--buttonWidth));
+}
+.grid{
+    display: flex;
+    width: 95%;
+    max-width: 800px;
+    flex-direction: column;
+    border-top: 1px solid var(--line-color);
+    border-right: 1px solid var(--line-color);
+    border-left: 1px solid var(--line-color);
+    box-shadow: 1px 1px 7px rgb(207, 207, 207);
+}
+
+.product{
+    background-color: rgb(113, 177, 214);
+    box-sizing: border-box;
+    display: flex;
+    max-width: 100%;
+    border-bottom: 1px solid var(--line-color);
+}
+
+.title_input{
+    outline: none;
+    border:none;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    flex-grow: 1;
+    border-right: 1px solid var(--line-color);
+}
+
+.price_input{
+    outline: none;
+    border:none;
+    background-color: rgb(255, 255, 255);
+    width:var(--priceWidth);
+    border-right: 1px solid var(--line-color);
+}
+/* Chrome, Safari, Edge, Opera */
+.price_input::-webkit-outer-spin-button,
+.price_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.price_input{
+  -moz-appearance: textfield;
+}
+.picLabel_new{
+   background-color: white; 
+   width: var(--buttonWidth);
+   color: rgb(255, 143, 143);
+   border-right: 1px solid var(--line-color);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.picLabel_old{
+    background-color: white; 
+    width: var(--buttonWidth);
+    color: rgb(153, 153, 153);
+    border-right: 1px solid var(--line-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+.picFileInput{
+    display: none;
+}
+.StockSliderContainer{
+    width:var(--buttonWidth);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    border-right: 1px solid var(--line-color);
+}
+.DeleteContainer{
+    padding: 0;
+    width:var(--buttonWidth);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Tacha{
+    background-color: rgb(49, 49, 49);
+    max-width: calc(800px - var(--buttonWidth));
+    width: calc(95% - var(--buttonWidth));
+    margin-top: 13px;
+    height: 3px;
+    position: absolute;
+}
+.SpinnerContainer{
+    width: 100%;
+    height: 300px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.DeleteLocalButton{
+    outline: none;
+    border: none;
+    color: rgb(56, 56, 56) ;
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+    padding: 0;
+    width: var(--buttonWidth);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.AddButton{
+    outline: none;
+    border: none;
+    color: rgb(240, 240, 240);
+    box-shadow: 2px 2px 4px rgb(218, 218, 218);
+    background-color: var(--color1Light);
+    height: 30px;
+    width: 50%;
+    max-width: 300px;
+    border-radius:0 0px 20px 20px;
+    font-size: 16px;
+}
+.SaveButton{
+    outline: none;
+    border: none;
+    margin-top:60px ;
+    color: rgb(56, 56, 56);
+    box-shadow: 2px 2px 4px rgb(218, 218, 218);
+    background-color: var(--color2);
+    height: 40px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 50px;
+    font-size: 16px;
+}
+.SaveButtonComprar:active{
+    background-color: var(--color2Dark);
+}
+
+@media only screen and (max-width: 370px) {
+    .title_input{
+      width: 100px;
+    }
+}

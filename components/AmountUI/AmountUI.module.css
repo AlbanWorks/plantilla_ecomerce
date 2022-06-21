@@ -1,0 +1,27 @@
+.Container{
+ display: flex;
+ font-family: var(--clearFont);
+}
+
+.Button{
+    outline: none;
+    border: none;
+    color: rgb(56, 56, 56);
+    font-size: 22px;
+    font-weight: 600;
+    background-color: transparent;
+    padding: 3px;
+}
+.Button:active{
+    color: rgb(37, 168, 54);
+}
+.Number{ 
+    margin:0;
+    padding: 0;
+    color: black;
+    width:35px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

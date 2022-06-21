@@ -1,0 +1,38 @@
+.Container{
+    width: 100%;
+    height: 100vh;
+    color: rgb(59, 59, 59);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(45deg, rgb(224, 224, 224), rgb(255, 255, 255));
+}
+.SubTitle{
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+.Button{
+    outline: none;
+    border: none;
+    margin-bottom:20px ;
+    color: rgb(56, 56, 56);
+    box-shadow: 2px 2px 4px rgb(218, 218, 218);
+    background-color: var(--color2);
+    height: 40px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 50px;
+    font-size: 16px;
+    z-index: 1000;
+}
+.ButtonComprar:active{
+    background-color: var(--color2Dark);
+}
+
+.Info{
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}

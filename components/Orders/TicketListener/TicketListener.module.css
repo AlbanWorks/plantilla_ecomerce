@@ -1,0 +1,104 @@
+.Container{
+    background-color: rgb(252, 252, 252);
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    box-sizing: border-box;
+    min-height: 250px;
+}
+.InfoContainer{
+    width: 100%;
+    height: 100%;
+    padding: 0 15px 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.Info{
+    margin:0;
+    padding: 10px 0 10px 0;
+    font-size: 18px;
+}
+.InfoTitle{
+    margin:40px 15px 10px 15px;
+    color: rgb(80, 80, 80);
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.ErrorContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.ErrorMessage{
+    margin:0 20px 0 20px;
+    text-align: center;
+    font-size: 19px;
+    color: rgb(75, 75, 75);
+}
+.ErrorContainer i{
+   color: rgb(224, 224, 224);
+   font-size: 90px;
+   align-self: center;
+}
+
+.TicketContainer{
+    margin-top:90px  ;
+    padding: 0 15px 0 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.TicketTitle{
+    margin-left: 10px;
+}
+
+.Product{
+  display: flex;
+  margin:0;
+  padding: 5px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(151, 151, 151);
+}
+.Title{
+    margin:0;
+}
+.Price{
+    margin: 0;
+}
+.TotalPrice{
+    margin: 10px 5px 5px 5px;
+    align-self: flex-end;
+}
+.Direction{
+    margin: 0 0 20px 5px;
+}
+.Banner{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.EnCamino{
+    color: rgb(78, 78, 78);
+    margin: 0 0 15px 0;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media only screen and (min-width: 500px) {
+    .Container{
+        margin-top: 100px;
+        min-height: 300px;
+    }
+}

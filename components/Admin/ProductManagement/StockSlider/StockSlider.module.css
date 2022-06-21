@@ -1,0 +1,39 @@
+.contenedor{
+    width: 24px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.BarraApagada{
+    height: 100%;
+    width: 100%;
+    border-radius: 70px;
+    background-color: rgb(172, 172, 172);
+    padding: 7%;
+    transition: all 0.2s;
+}
+.BarraEncendida{
+    height: 100%;
+    width: 100%;
+    border-radius: 70px;
+    background-color: rgb(219, 219, 219);
+    padding: 7%;
+    transition: all 0.2s;
+}
+.bolaApagada{
+    margin-left: 0;
+    height: 100%;
+    width: 50%;
+    border-radius: 50%;
+    background-color: rgb(112, 112, 112);
+    transition: margin 0.2s;
+}
+.bolaEncendida{
+    margin-left: 50%;
+    height: 100%;
+    width: 50%;
+    border-radius: 50%;
+    background-color: rgb(75, 204, 24);
+    transition: margin 0.2s;
+}

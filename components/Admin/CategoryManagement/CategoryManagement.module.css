@@ -1,0 +1,119 @@
+.Container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    color: rgb(68, 68, 68);
+    --line-color: rgb(141, 141, 141);
+}
+.TitleContainer{
+    color: white;
+    background-image: linear-gradient(45deg, var(--color1), var(--color1Light));
+    width: 100%;
+    height: 60px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px rgb(190, 190, 190);
+    
+}
+.Title{
+    margin: 0;
+    padding-left:15px;
+    font-size: 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.479);
+}
+.SpanTemporal{
+    text-align: center;
+    font-size: 15px;
+    width: 90%;
+    margin: 10px 0 20px 0;
+}
+.CategoriesContainer{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid var(--line-color);
+    border-right: 1px solid var(--line-color);
+    border-left: 1px solid var(--line-color);
+    box-shadow: 2px 2px 4px rgb(218, 218, 218);
+}
+.subTitle{
+    margin: 10px;
+}
+.Category{
+    border-bottom: 1px solid var(--line-color);   
+}
+.Input{
+    outline: none;
+    border:none;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    background-color: white;
+}
+.oldInput{
+    outline: none;
+    border:none;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    background-color: var(--color2Light);
+}
+.errorInput{
+    outline: none;
+    border:none;
+    padding: 5px;
+    background-color: var(--color2Light);
+}
+.deleteInput{
+    outline: none;
+    border:none;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    text-decoration:line-through;
+    background-color: rgb(177, 177, 177);
+}
+.deleteButton{
+    outline: none;
+    height: 100%;
+    border: none;
+    color: rgb(56, 56, 56);
+    background-color: white;
+    border-left: 1px solid rgb(172, 172, 172);
+}
+
+.addButton{
+    outline: none;
+    border: none;
+    color: rgb(240, 240, 240);
+    box-shadow: 2px 2px 4px rgb(218, 218, 218);
+    background-color: var(--color1Light);
+    height: 30px;
+    width: 45%;
+    max-width: 160px;
+    border-radius:0 0px 20px 20px;
+    font-size: 15px;
+}
+.addButton:active{
+    background-color: var(--color1);
+}
+.saveButton{
+    outline: none;
+    border: none;
+    margin-top:60px ;
+    margin-bottom:20px ;
+    color: rgb(56, 56, 56);
+    box-shadow: 2px 2px 4px rgb(218, 218, 218);
+    background-color: var(--color2);
+    height: 40px;
+    width: 70%;
+    max-width: 300px;
+    border-radius: 50px;
+    font-size: 16px;
+}
+.SaveButtonComprar:active{
+    background-color: var(--color2Dark);
+}
+
