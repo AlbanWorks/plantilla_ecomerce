@@ -4,7 +4,7 @@ import classes from '../styles/pageStyles.module.css'
 import CategoryManagement from "../../components/Admin/CategoryManagement/CategoryManagement"
 import Signin from '../../components/Admin/Signin/Signin'
 
-export default function gestionar_categorias() {
+export default function Gestionar_categorias() {
 
   const[isLoged, setIsLoged] =  useState(false)
 
