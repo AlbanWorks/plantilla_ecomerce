@@ -5,9 +5,9 @@
 }
 .ProductContainer{
 width: 100%;
-max-width: 700px;
+max-width: 700px; 
 background-color: rgb(255, 255, 255);
-padding-top: 100px ;
+margin-top: 100px ;
 display: flex;
 flex-direction: column;
 }

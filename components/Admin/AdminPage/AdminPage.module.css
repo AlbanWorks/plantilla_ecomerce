@@ -16,22 +16,36 @@
     margin-bottom: 30px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     box-shadow: 0 0 10px rgb(190, 190, 190);
     
 }
 .Title{
-    margin: 0;
-    padding-left:15px;
+    margin: 0 0 0 15px;
     font-size: 22px;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.479);
+}
+.SignoutButton{
+    outline: none;
+    border: none;
+    margin: 0 15px 0 0;
+    padding: 0 10px 0 10px;
+    text-shadow: 0 0 2px var(--color2Dark);
+    color: rgb(77, 77, 77);
+    background-image: linear-gradient(45deg, var(--color2Dark), var(--color2Light));
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.267);
+    height: 30px;
+    border-radius: 50px;
+    font-size: 14px;
 }
 .Button{
     outline: none;
     border: none;
     margin-bottom:20px ;
-    color: rgb(56, 56, 56);
+    color: rgb(66, 66, 66);
     box-shadow: 2px 2px 4px rgb(218, 218, 218);
-    background-color: var(--color2);
+    text-shadow: 0 0 2px var(--color2Dark);
+    background-image: linear-gradient(45deg, var(--color2), var(--color2Light));
     height: 40px;
     width: 90%;
     max-width: 500px;
@@ -107,8 +121,10 @@
 }
 .ChangeStateContainer{
     width: 100%;
+    padding: 10px;
     height: 100px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -116,7 +132,13 @@
     font-size: 25px;
 }
 .ChangeStateError{
-    font-size: 25px;
+    font-size: 20px;
+    margin: 0;
+}
+.ChangeStateErrorSubtitle{
+    margin: 0;
+    font-size: 17px;
+    text-align: center;
 }
 .MainSpinnerContainer{
     width: 100%;

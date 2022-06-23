@@ -2,6 +2,7 @@ import React,{useState,useContext} from 'react'
 import classes from './Product.module.css'
 import AmountUI from '../AmountUI/AmountUI'
 import { DataContext } from '../../provider'
+import { useRouter } from 'next/router'
 
 const Product = ({LocalProduct}) => {
     
@@ -9,6 +10,7 @@ const Product = ({LocalProduct}) => {
     const {setCartProducts} = useContext(DataContext)
     const [amount, setAmount] = useState(1)
     const [ButtonText, setButtonText] = useState("Agregar al Carrito")
+    const router = useRouter() 
 
     const AddToCart = (product) => {
         //el set timeout es para dar una sensacion de trabajo
@@ -38,9 +40,12 @@ const Product = ({LocalProduct}) => {
     }
 
     return (
-        <div className={classes.Product} >
-            <div className={classes.ImgContainer} >
-                <img src={LocalProduct["picUrl"]} alt="" width="100%"/>
+        <div className={classes.Product}>
+            <div className={classes.ImgContainer} onClick={()=> router.push(`${router.asPath}/${LocalProduct["title"]}`) } >
+                <img 
+                    className={classes.Img}
+                    src={LocalProduct["picUrl"]} alt="" width="100%"
+                />
             </div>
             <div className={classes.InfoContainer} >
                 <h3 className={classes.Title} >{LocalProduct["title"]}</h3>

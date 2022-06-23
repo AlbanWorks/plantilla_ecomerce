@@ -1,26 +1,33 @@
 import React, {useState, useEffect, Fragment} from 'react'
-import {signInWithPopup, GoogleAuthProvider, onAuthStateChanged} from "firebase/auth";
+import {signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut} from "firebase/auth";
 import classes from './Signin.module.css'
+import { owner } from '../../../firebase/routes';
 import { auth } from '../../../firebase/firebaseConfig';
 import Spinner from '../../Spinner/Spinner'
 
 const Signin = ({setLogin}) => { 
     const [showUI, setshowUI] = useState(false)
 
-    useEffect(() => {
+    useEffect(() => {  
       onAuthStateChanged(auth, user => {
-        if (user) setLogin(true)
+        if (user && user.uid === owner) setLogin(true)
         else setshowUI(true)
       })
+      return () => onAuthStateChanged
     }, [])
 
-    const signIn = () => {
+    const signIn = async () => {
         const provider = new GoogleAuthProvider(); 
         signInWithPopup(auth, provider)
         .then((result) => {
             // esto lo copié de la documentacion oficial, ver como reemplazar esto por async await, no se como recibir el "result"
-            console.log(result);
-            setLogin(true)
+            if(result.user.uid === owner){
+              setLogin(true)
+            }
+            else{
+              alert("Ingrese con la cuenta autorizada para esta tienda")
+            }
+            
         }).catch((error) => {
             // esto lo copié de la documentacion oficial, ver como reemplazar esto por async await, no se como recibir el "error"
             console.log(error);

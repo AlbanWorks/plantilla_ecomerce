@@ -4,6 +4,10 @@ import { DataContext } from '../../../provider'
 import { useRouter } from 'next/router'
 import Spinner from '../../Spinner/Spinner'
 import { setStoreInfo } from '../../../firebase/FirestoreMethods'
+import { signOut } from "firebase/auth";
+import { auth } from '../../../firebase/firebaseConfig';
+
+
 
 
 const AdminPage = () => {
@@ -43,11 +47,25 @@ const AdminPage = () => {
         e.preventDefault()
         setSavingState("saving")
         const Changes = await setStoreInfo(Name,Cellphone)
-        if (Changes.saved){
-            setSavingState("saved")
-            setTitle(Name)
+        if (Changes.err){
+            if(Changes.err.code === "permission-denied")setSavingState("account_error")
+            else setSavingState("error")
+            
         } 
-        else setSavingState("error")
+        else if (Changes.saved){
+        setSavingState("saved")
+            setTitle(Name)
+           
+            
+        } 
+    }
+
+    const signOutUser = () =>{
+        signOut(auth).then(() => {
+            router.reload(window.location.pathname)
+        }).catch((error) => {
+            alert(error)
+        });
     }
 
 return (
@@ -56,6 +74,11 @@ return (
         <div className={classes.Container}>
             <header className={classes.TitleContainer}>
                 <h1 className={classes.Title}>{Title}</h1>
+                <button 
+                    className={classes.SignoutButton} 
+                    onClick={()=> signOutUser()}>
+                        Cerrar Sesión
+                </button>
             </header>
             <button 
                 className={classes.Button}
@@ -96,6 +119,11 @@ return (
                     :SavingState ==="error" ?
                     <div className={classes.ChangeStateContainer}>
                         <h4 className={classes.ChangeStateError}>Error al Guardar...</h4>
+                    </div>
+                    :SavingState ==="account_error" ?
+                    <div className={classes.ChangeStateContainer}>
+                        <h4 className={classes.ChangeStateError}>Acceso denegado</h4>
+                        <p className={classes.ChangeStateErrorSubtitle}>intente cerrar sesión e ingresar con la cuenta adecuada, si el problema persiste comuníquese con nosotros</p>
                     </div>
                     :null
                 }

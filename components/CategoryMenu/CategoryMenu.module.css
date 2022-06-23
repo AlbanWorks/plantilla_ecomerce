@@ -42,7 +42,7 @@
 
 
 .Button:active{
-    background-color: var(--color2Dark);
+    filter: brightness(80%)
 }
 
 .Ball{
