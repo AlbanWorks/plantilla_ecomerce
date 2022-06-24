@@ -17,7 +17,7 @@ const CategoryMenu = () => {
             {
                 PublicInfo === null ?
                     <Fragment>
-                        <h2 className={classes.Title}></h2>
+                        <h2 className={classes.Title}>S</h2>
                         <div className={classes.SpinnerContainer} ><Spinner/></div>
                     </Fragment>
                 : PublicInfo.error ?

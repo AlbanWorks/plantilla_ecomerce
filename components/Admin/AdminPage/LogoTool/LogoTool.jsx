@@ -28,7 +28,7 @@ const handlePhoto = (e) => {
 
 return (
     <div className={classes.Container}>
-        <label className={classes.Label} htmlFor='input_logo'><i class="fa-solid fa-camera"></i></label>
+        <label className={classes.Label} htmlFor='input_logo'><i className="fa-solid fa-camera"></i></label>
         <input
             id='input_logo' 
             className={classes.FileInput}
