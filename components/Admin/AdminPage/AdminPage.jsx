@@ -2,10 +2,11 @@ import React,{useState, useEffect, useContext,Fragment} from 'react'
 import classes from './AdminPage.module.css'
 import { DataContext } from '../../../provider'
 import { useRouter } from 'next/router'
-import Spinner from '../../Spinner/Spinner'
-import { setStoreInfo } from '../../../firebase/FirestoreMethods'
+import { handleLogoUpload, setStoreInfo } from '../../../firebase/FirestoreMethods'
 import { signOut } from "firebase/auth";
 import { auth } from '../../../firebase/firebaseConfig';
+import Spinner from '../../Spinner/Spinner'
+import LogoTool from './LogoTool/LogoTool'
 
 
 
@@ -15,15 +16,28 @@ const AdminPage = () => {
     const [PublicInfoFetched, setPublicInfoFetched] = useState(false)
     const [Name, setName] = useState("Nueva Tienda")
     const [Cellphone, setCellphone] = useState(123456)
-    const [SavingState, setSavingState] = useState("not saved")
-    const [Title, setTitle] = useState("Nueva Tienda")
+    const [OldLogo, setOldLogo] = useState(false)
+    const [NewLogo, setNewLogo] = useState(false)
+    const [SavingState, setSavingState] = useState("not saved") 
     const router = useRouter() 
+
+    useEffect(() => {
+
+        console.log("rendereo");
+    
+    
+    })
+
+    useEffect(() => {
+     console.log("cambia old logo y se detecta desde arriba");
+    }, [OldLogo])
+    
     
     useEffect(() => {
         if(PublicInfo !== null){
             setName(PublicInfo.StoreName)
-            setTitle(PublicInfo.StoreName)
             setCellphone(PublicInfo.Cellphone)
+            setOldLogo(PublicInfo.Logo)
             setPublicInfoFetched(true)
         }
     }, [PublicInfo])
@@ -46,17 +60,16 @@ const AdminPage = () => {
     const saveChanges = async (e) => {
         e.preventDefault()
         setSavingState("saving")
-        const Changes = await setStoreInfo(Name,Cellphone)
+        const logoUrl = await handleLogoUpload(OldLogo,NewLogo)
+        const Changes = await setStoreInfo(Name,Cellphone,logoUrl)
         if (Changes.err){
             if(Changes.err.code === "permission-denied")setSavingState("account_error")
             else setSavingState("error")
             
         } 
         else if (Changes.saved){
-        setSavingState("saved")
-            setTitle(Name)
-           
-            
+            setSavingState("saved")
+            setName(Name)
         } 
     }
 
@@ -73,7 +86,7 @@ return (
         PublicInfoFetched ?
         <div className={classes.Container}>
             <header className={classes.TitleContainer}>
-                <h1 className={classes.Title}>{Title}</h1>
+                <h1 className={classes.Title}>{Name}</h1>
                 <button 
                     className={classes.SignoutButton} 
                     onClick={()=> signOutUser()}>
@@ -106,6 +119,7 @@ return (
                     defaultValue={Cellphone} 
                     onChange={(e)=>checkInputCellphone(e.target)} 
                 />
+                <LogoTool setNewLogo={(photo)=>setNewLogo(photo)} OldLogo={OldLogo}/>
                 <button className={classes.SaveButton} >Guardar Cambios</button>
                 <div>{
                     SavingState ==="saving" ?

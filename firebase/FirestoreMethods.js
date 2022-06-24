@@ -1,7 +1,7 @@
 import {db, storage} from './firebaseConfig'
 import { owner, owner_route, cat_route, pic_route } from './routes'
 import { collection, getDocs, doc, getDoc, setDoc, addDoc, deleteDoc, query, where } from "firebase/firestore"
-import {ref, uploadBytesResumable, getDownloadURL, deleteObject } from "@firebase/storage"
+import {ref, uploadBytesResumable, getDownloadURL, deleteObject, refFromURL } from "@firebase/storage"
 
 
 //haganme la atencion de borrar los clg si no les sirven
@@ -24,16 +24,17 @@ const getInfo = async () => {
     const PublicInfo = {
         CategoryIndex: catIndex,
         StoreName: info.store_name,
-        Cellphone: info.cellphone
+        Cellphone: info.cellphone,
+        Logo: info.store_logo
     }
 
     return PublicInfo
 }
 
-const setStoreInfo = async (name, cellphone) => {
-    
-    const info = {store_name: name , cellphone:cellphone }
+const defaultLogo = "https://firebasestorage.googleapis.com/v0/b/mamatienda-a7d3c.appspot.com/o/defaultStore.jpg?alt=media&token=bf95af5c-08b9-4f16-b1ba-0e558fa607a6"
 
+const setStoreInfo = async (name, cellphone, logo) => {
+    const info = {store_name: name , cellphone: cellphone, store_logo: logo}
     try {
         await setDoc(doc(db, owner_route(), "store_info" ), info);
         return{saved:"info saved"}
@@ -41,6 +42,13 @@ const setStoreInfo = async (name, cellphone) => {
     catch (err){
         return{err}
     }
+}
+const handleLogoUpload = async (oldLogoUrl, newLogoFile) => {
+    if(!newLogoFile) return oldLogoUrl
+    await deleteImage(oldLogoUrl)
+    await uploadPicture(newLogoFile)
+    const logoUrl = await getImageURL(newLogoFile)
+    return logoUrl
 }
 //--------------GESTION DE CATEGORÍAS-------------------------
 
@@ -155,7 +163,7 @@ const addProduct = async (category, product) => {
 }
 
 const deleteProduct = async (category, product) => {
-    const deleteImg = deleteImage(product.picRoute)
+    await deleteImage(product.picUrl)
     try {
         await deleteDoc(doc(db, cat_route(category), product.ID));
         return{deleted:"product deleted"}
@@ -192,17 +200,19 @@ const getCollection = async (category) => {
 }
 
 
-//--------------FOTOS------------------------------------------------------- 
+//--------------FOTOS-------------------------------------------------------
+
+const defaultProductPhoto = "https://firebasestorage.googleapis.com/v0/b/mamatienda-a7d3c.appspot.com/o/defaultProduct.jpg?alt=media&token=20affdd7-e127-4b8b-8844-b5f286aca3fc"
 
 const handlePicUpload= async (product)=>{
     if(!product.picFile) return product
     const uploadPic = await uploadPicture(product.picFile)
     const picUrl = await getImageURL(product.picFile)
     //si paso algo raro le pongo el link a una imágen por defecto, (manejar estos errores luego)
-    if(uploadPic.err || picUrl.err) product.picUrl = "https://firebasestorage.googleapis.com/v0/b/mamatienda-a7d3c.appspot.com/o/defaultProduct.jpg?alt=media&token=20affdd7-e127-4b8b-8844-b5f286aca3fc"
+    if(uploadPic.err || picUrl.err) product.picUrl = defaultProductPhoto
     else{
         product.picUrl = picUrl
-        product.picRoute =  pic_route(product.picFile.name) //importante para borrar la foto
+      //  product.picRoute =  pic_route(product.picFile.name) //importante para borrar la foto (actualizacion) ya no mas
     } 
     delete product.picFile
     return product
@@ -211,11 +221,10 @@ const handlePicUpload= async (product)=>{
 const uploadPicture = async (file) =>{
     try {
         const storageRef = ref(storage, pic_route(file.name))
-        const metadata = {owner: owner}; //este dato nos ayudará a que las reglas de storage protejan los archivos de cada dueño
-        const uploadTask = await uploadBytesResumable(storageRef, file, metadata)
+      //  const metadata = {owner: owner}; //este dato nos ayudará a que las reglas de storage protejan los archivos de cada dueño
+       await uploadBytesResumable(storageRef, file)
         return{ok:"all right"}
     } catch (err) {
-        console.log("error al subir imagen", err)
         return{err}
     }
 }
@@ -232,11 +241,12 @@ const getImageURL = async (file)=>{
     }
 }
 
-const deleteImage = async (picRoute)=>{
-    if(picRoute === "/defaultProduct.jpg") return{deleted:"no foto"}
+const deleteImage = async (picUrl)=>{
+    console.log(picUrl)
+    if(picUrl === defaultProductPhoto) return{deleted:"no foto"}
     try {
-        const storageRef = ref(storage, picRoute)
-        const deletedImage = await deleteObject(storageRef)
+        const storageRef = ref(storage, picUrl)
+        await deleteObject(storageRef)
         return{deleted:"is dead"}
     } catch (err) {
         console.log("ERROR EN EL BORRE DE LA IMAGEN", err)
@@ -247,7 +257,8 @@ const deleteImage = async (picRoute)=>{
 //------------------------------------------------------------------------- 
 
 export { 
-    getInfo, 
+    getInfo,
+    handleLogoUpload, 
     setStoreInfo, 
     addCategory,
     deleteCategory,

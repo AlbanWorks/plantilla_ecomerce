@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext,Fragment} from 'react'
 import { DataContext } from '../../provider'
 import { useRouter } from 'next/router'
 import Spinner from '../Spinner/Spinner'
@@ -14,22 +14,25 @@ const CategoryMenu = () => {
     
     return (
         <div className={classes.Container}>
-            <h2 className={classes.Title}> Categorías </h2>{
+            {
                 PublicInfo === null ?
-                    <div className={classes.SpinnerContainer} >
-                        <Spinner/>
-                    </div>
+                    <Fragment>
+                        <h2 className={classes.Title}></h2>
+                        <div className={classes.SpinnerContainer} ><Spinner/></div>
+                    </Fragment>
                 : PublicInfo.error ?
                     <h1>Se ha producido un error, intente recargar la página</h1>
                 :
-                <nav className={classes.ButtonsContainer}> 
-                    {
-                    PublicInfo.CategoryIndex.map((CategoryName,index)=> 
-                        <button className={classes.Button} key={index} onClick={()=>goTo(`/${CategoryName}`)}> 
-                            {CategoryName}
-                        </button>)
+                <Fragment>
+                    <h2 className={classes.Title}> Categorías </h2>
+                    <nav className={classes.ButtonsContainer}>{
+                        PublicInfo.CategoryIndex.map((CategoryName,index)=> 
+                            <button className={classes.Button} key={index} onClick={()=>goTo(`/${CategoryName}`)}> 
+                                {CategoryName}
+                            </button>)
                     }
-                </nav>
+                    </nav>
+                </Fragment>
             }
             <div className={classes.Ball}/>
         </div>

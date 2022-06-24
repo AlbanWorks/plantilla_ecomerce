@@ -1,29 +1,51 @@
-import React from 'react'
-import {db} from '../../firebase/firebaseConfig'
-import { collection, getDocs, doc, getDoc, setDoc, addDoc, deleteDoc, query, where } from "firebase/firestore"
-import { addCategory, deleteCategory } from '../../firebase/FirestoreMethods'
-import { cat_route } from '../../firebase/routes'
+import React,{useState,useEffect} from 'react'
+import classes from './FB.module.css'
+import refFromURL from "@firebase/storage"
 const CategoryFinder = () => {
 
-    const find = async ()=>{
-      try {
-        console.log("commencing");
-        //await setDoc(doc(db, cat_route("CATEGORIA"), "DOCUMENTO" ), {hola:"asdasdasd"});
-        //await addCategory("CAT_PRUEBA")
-        await deleteCategory("CAT_PRUEBA")
-        //await deleteDoc(doc(db, cat_route("zedong"),"sss"))
-        console.log("fin");
-      } 
-      catch (err){
-        console.log(err);
-      }
-    }
+const [Photo, setPhoto] = useState(false)
 
-  return (
-    <div>categoryFinder
-        <button onClick={()=>find()}>CLICK</button>
+useEffect(() => {
+
+    console.log("rendereo");
+
+
+})
+
+
+const handlePhoto = (e) => {
+    console.log("chanfa");
+    const foto = e.target.files[0]
+    if(foto){
+        let reader = new FileReader()
+        reader.onloadend = (e)=>{
+            const { result } = e.target;
+            setPhoto(result)
+        }
+        reader.readAsDataURL(foto)
+    }
+}
+
+const SendPhoto = () => {
+    
+}
+
+return (
+    <div className={classes.PageContainer}>
+        <input type="file" onChange={(e)=> handlePhoto(e)} />
+        {
+            Photo?
+            <div className={classes.Container}>
+                <img className={classes.Img} src={Photo} alt="" width="100%" />
+            </div>
+            :
+            <div className={classes.Container}>non</div>
+        }
+        <button onClick={sendPhoto} >send</button>
     </div>
   )
 }
 
 export default CategoryFinder
+
+//<img className={classes.Img} src={Photo} alt="" width="100%"/>

@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import { DataContext } from '../../provider'
 import classes from './Headers.module.css'
+import Logo from './Logo/Logo'
 
 const MainHeader = () => {
 
@@ -11,8 +12,7 @@ const MainHeader = () => {
             <nav className={classes.MainHeader}>{
                 PublicInfo && !PublicInfo.error?
                     <h1 className={classes.MainHeaderTitle} >{PublicInfo.StoreName}</h1>
-                :
-                <div>adorno</div>
+                :null
             }
             </nav>
             <div className={classes.Wave} >
@@ -22,7 +22,15 @@ const MainHeader = () => {
                     960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
                     </path>
                 </svg>
-            </div>
+            </div>{
+                PublicInfo && !PublicInfo.error?
+                    <div className={classes.MainLogoContainer}>
+                        <div className={classes.MainLogoSubContainer}>
+                            <Logo logo={PublicInfo.Logo}/>
+                        </div>
+                    </div>
+                :null
+            }
         </div>   
     )
 }
