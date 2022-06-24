@@ -27,7 +27,7 @@ const CategoryManagement = () => {
 
 
     const addLocalCategory = () => {
-        const newCategory = {Name:"", isNew:true, delete: false , id: new Date().getTime()}
+        const newCategory = {Name:"Nueva Categoía", isNew:true, delete: false , id: new Date().getTime()}
         setCategories([...Categories, newCategory])
     }
 
@@ -74,7 +74,7 @@ const CategoryManagement = () => {
     const changeStyles = (errors,target,index) => {
         if(errors) target.style.backgroundColor = "var(--color3Light)"
         else if (Categories[index].isNew)target.style.backgroundColor = "white"
-        else target.style.backgroundColor = "var(--color2Light)"
+        else target.style.backgroundColor = "rgb(235, 235, 235)"
        
     }
 
@@ -118,6 +118,9 @@ const CategoryManagement = () => {
         Categories !== null && SavingState !=="saving" ?
         <Fragment>
             <div className={classes.CategoriesContainer} >
+                <div className={classes.CategoriesLabelContainer}>
+                    <span className={classes.CategoriesLabel}>Categorías</span>
+                </div>
                 {
                 Categories.map((category,index) =>
                     <div key={category.id} className={classes.Category} >

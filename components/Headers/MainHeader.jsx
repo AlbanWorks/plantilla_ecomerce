@@ -15,14 +15,16 @@ const MainHeader = () => {
                 :null
             }
             </nav>
-            <div className={classes.Wave} >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                    <path fill="var(--color1)" fill0pacity="1" d="M0,224L80,234.7C160,245,320,267,480,234.7C640
-                    ,203,800,117,960,106.7C1120,96,1280,160,1360,192L1440,224L1440,0L1360,0C1280,0,1120,0,
-                    960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
+            
+            <div className={classes.Wave} style={{height: '150px', overflow: 'hidden'}}>
+                <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{height: '100%', width: '100%'}}>
+                    <path 
+                        d="M0.00,49.99 C170.31,103.09 251.56,31.09 500.00,49.99 L500.30,-1.90 L-1.56,-2.90 Z" 
+                        style={{stroke: 'none', fill: 'var(--color1)'}}>
                     </path>
                 </svg>
-            </div>{
+            </div>
+            {
                 PublicInfo && !PublicInfo.error?
                     <div className={classes.MainLogoContainer}>
                         <div className={classes.MainLogoSubContainer}>
@@ -36,3 +38,12 @@ const MainHeader = () => {
 }
 
 export default MainHeader
+/*
+<!-- SVG wave generated from https://codepedia.info/svg-wave-generator -->
+
+<div style="height: 150px; overflow: hidden;">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{height: '100%', width: '100%'}}>
+        <path d="M0.00,49.99 C170.31,103.09 251.56,31.09 500.00,49.99 L500.30,-1.90 L-1.56,-2.90 Z" style="stroke: none; fill: #fa4945"></path>
+    </svg>
+</div>
+*/

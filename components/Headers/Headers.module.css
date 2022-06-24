@@ -23,19 +23,23 @@
 }
 .MainHeader{
     background-color: var(--color1);
-    height: 50px;
+    height: 60px;
     width: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    z-index: 200;
+}
+.Wave{
+    filter: drop-shadow(0 -4px 10px var(--color1));
 }
 .MainHeaderTitle{
     position: absolute;
     margin:0;
     margin-left: 10px;
     font-size: 30px;
-    color: white;
-    text-shadow: 0 0 10px var(--color1Dark);
+    color: rgb(247, 247, 247);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 500;
 }
 .LogoContainer{
@@ -48,30 +52,21 @@
     width: 100%;
     justify-content: center;
     position: absolute;
-    top: 60px;
+    top: 80px;
 }
 .MainLogoSubContainer{
     width: 100px;
     height: 100px;
 }
 
-@media only screen and (min-width: 800px) {
-    .Wave{
-        position: absolute;
-        top:-10px;
-        width: 100%;
-    }
-}
 @media only screen and (min-width: 1300px) {
     .MainNavbarTitle{
         font-size: 30px;
     }
-    .Wave{
-        top:-46px;
-    }
-}
-@media only screen and (min-width: 1500px) {
-    .Wave{
-        top:-60px;
+    .MainLogoContainer{
+        top: 0px;
+        width:auto;
+        padding: 20px;
+        justify-content: flex-start;
     }
 }

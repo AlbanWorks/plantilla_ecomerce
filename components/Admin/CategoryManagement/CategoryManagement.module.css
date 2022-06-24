@@ -31,13 +31,24 @@
     width: 90%;
     margin: 10px 0 20px 0;
 }
+.CategoriesLabelContainer{
+    background-color:var(--color1Light);
+    height: 25px;
+    border-bottom: 1px solid var(--line-color);
+    display: flex;
+    align-items: center;
+}
+.CategoriesLabel{
+    margin-left: 5px;
+   color: rgb(233, 233, 233);
+}
 .CategoriesContainer{
     display: flex;
-    width: fit-content;
-    align-items: center;
+    width: 99%;
+    max-width: 500px;
     flex-direction: column;
     border-top: 1px solid var(--line-color);
-    border-right: 1px solid var(--line-color);
+    border-right: 1px solid var(--line-color); 
     border-left: 1px solid var(--line-color);
     box-shadow: 2px 2px 4px rgb(218, 218, 218);
 }
@@ -45,9 +56,12 @@
     margin: 10px;
 }
 .Category{
+    width: 100%;
+    display: flex;
     border-bottom: 1px solid var(--line-color);   
 }
 .Input{
+    flex-grow: 1;
     outline: none;
     border:none;
     background-color: rgb(255, 255, 255);
@@ -55,29 +69,33 @@
     background-color: white;
 }
 .oldInput{
+    flex-grow: 1;
     outline: none;
     border:none;
     background-color: rgb(255, 255, 255);
     padding: 5px;
-    background-color: var(--color2Light);
+    background-color: rgb(235, 235, 235);
 }
 .errorInput{
+    flex-grow: 1;
     outline: none;
     border:none;
     padding: 5px;
     background-color: var(--color2Light);
 }
 .deleteInput{
+    flex-grow: 1;
     outline: none;
     border:none;
     background-color: rgb(255, 255, 255);
     padding: 5px;
     text-decoration:line-through;
-    background-color: rgb(177, 177, 177);
+    background-color: var(--color3Light);
 }
 .deleteButton{
     outline: none;
     height: 100%;
+    width: 30px;
     border: none;
     color: rgb(56, 56, 56);
     background-color: white;
@@ -90,10 +108,11 @@
     color: rgb(240, 240, 240);
     box-shadow: 2px 2px 4px rgb(218, 218, 218);
     background-color: var(--color1Light);
-    height: 30px;
     width: 45%;
+    padding: 7px;
+    margin-top: 10px;
     max-width: 160px;
-    border-radius:0 0px 20px 20px;
+    border-radius:20px;
     font-size: 15px;
 }
 .addButton:active{

@@ -65,7 +65,7 @@ flex-grow: 1;
 }
 .grid{
     display: flex;
-    width: 95%;
+    width: 99%;
     max-width: 800px;
     flex-direction: column;
     border-top: 1px solid var(--line-color);
@@ -183,7 +183,8 @@ flex-grow: 1;
     height: 30px;
     width: 50%;
     max-width: 300px;
-    border-radius:0 0px 20px 20px;
+    margin-top: 10px;
+    border-radius:20px;
     font-size: 16px;
 }
 .SaveButton{
