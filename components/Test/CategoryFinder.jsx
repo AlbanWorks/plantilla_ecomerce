@@ -3,7 +3,7 @@ import React from 'react'
 const CategoryFinder = () => {
 
 return (
-    <div className={classes.PageContainer}>
+    <div >
        loc
     </div>
   )
