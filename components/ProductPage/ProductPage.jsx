@@ -26,7 +26,7 @@ const fetchData = async () =>{
     else SetFetchState("error")
   }
   fetchData()
-}, []) 
+}, [category, name]) 
 
 const AddToCart = (product) => {
     //el set timeout es para dar una sensacion de trabajo
@@ -61,7 +61,7 @@ const AddToCart = (product) => {
       FetchState === "fetched" ?
         <div className={classes.ProductContainer} >
           <div className={classes.ImgContainer} >
-                <img src={Product["picUrl"]} alt="" width="100%"/>
+                <img className={classes.Img} src={Product["picUrl"]} alt="" width="100%"/>
           </div>
             <div className={classes.InfoContainer} >
                 <h3 className={classes.Title} >{Product["title"]}</h3>
@@ -73,7 +73,7 @@ const AddToCart = (product) => {
                     </button>
                </div>
             </div>
-        </div>
+        </div> 
        
       :FetchState === "error" ?
         <div className={classes.ErrorContainer}>

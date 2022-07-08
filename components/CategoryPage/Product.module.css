@@ -3,7 +3,8 @@
     box-shadow: -2px 4px 13px rgb(214, 214, 214);
     color: rgb(83, 83, 83);
     margin: 20px;
-    min-height: 400px;
+    height: 400px;
+    max-height: 400px;
     width:270px;
     display: flex;
     flex-direction: column;

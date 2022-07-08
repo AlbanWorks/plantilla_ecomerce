@@ -3,7 +3,7 @@
 //---- validaciones de formato en los inputs de info y direccion-----
 const checkFormat = (Direction, Indications)=>{
     if(typeof Direction ==='string' 
-    && Direction.length > 9 
+    && Direction.length > 0 
     && Direction.length < 100
     && typeof Indications ==='string'
     && Indications.length < 150)return {passed: "TEST PASSED"}

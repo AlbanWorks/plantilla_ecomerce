@@ -1,4 +1,5 @@
-import Firestore from '../../firebase/FirebaseAdminConfig'
+import Firestore from '../../firebase/FirebaseAdminConfig_deprecated'
+import { firestore} from '../../firebase/FirebaseAdminConfig2'
 import { cat_route } from '../../firebase/routes'
 
 //-------------------------JSON validator---------------------------------------------
@@ -54,7 +55,7 @@ const isValidListFormat = (lista) =>{
 
   const getProduct = async (category,ID ) => {
     const route = `${cat_route(category)}/${ID}`
-    const docRef = Firestore().doc(route);
+    const docRef = firestore.doc(route);
     const docSnap = await docRef.get();
     if (docSnap.exists) {
         return docSnap.data();
@@ -86,7 +87,6 @@ const isValidListFormat = (lista) =>{
   const Response = (res, code, data) =>{
     if(code >= 300 ){
       res.status(code).json({err: data})
-      console.log(data)
     } 
     else res.status(code).json(data)
   }
@@ -95,7 +95,6 @@ const isValidListFormat = (lista) =>{
 
 const handler = async (req, res) => {
   if(req.method ==='POST'){
-   
     const Parsed_Request = ParseRequest(req.body)
     if(!Parsed_Request){
       Response(res, 500, "error de formato JSON")

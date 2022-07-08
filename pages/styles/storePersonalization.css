@@ -1,0 +1,22 @@
+:root{
+    /* Colores de la tienda (diseños basados en 3 colores complementarios) */
+    
+    --color1: rgb(54, 98, 219);
+    --color1Light: rgb(87, 126, 231);
+    --color1Dark: rgb(34, 81, 209);
+
+    --color2: rgb(100, 236, 100);
+    --color2Light: rgb(143, 238, 143);
+    --color2Dark: rgb(70, 204, 70);
+
+    --color3: rgb(240, 80, 80);
+    --color3Light: rgb(243, 115, 115);
+    --color3Dark: rgb(190, 29, 29);
+  
+    /* Fuentes de la tienda */ 
+  
+    font-family:sans-serif; /* Fuente 1 por defecto */ 
+    --clearFont:'verdana'; /* Fuente que se deje leer */ 
+    --FancyFont:'sans-serif'; /* Fuente Artistica */ 
+  }
+  

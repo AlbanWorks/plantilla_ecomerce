@@ -15,18 +15,20 @@ const Cart = () => {
     const router = useRouter()
     const containerRef = useRef()
 
+const CalcularTotal = ()=>{
+        let Precio = 0;
+        CartProducts.forEach(product => {
+            Precio += parseInt(product.price, 10) * product.amount;
+        });
+        setTotal(Precio)
+    }    
+
 useEffect(() => {
     CalcularTotal()
     if(CartProducts.length > 0) setEmptyCartAlert(false)
-}, [CartProducts])
+}, [CartProducts, CalcularTotal])
 
-const CalcularTotal = ()=>{
-    let Precio = 0;
-    CartProducts.forEach(product => {
-        Precio += parseInt(product.price, 10) * product.amount;
-    });
-    setTotal(Precio)
-}
+
 
 const IniciarCompra= () =>{
     if(CartProducts.length > 0) router.push('/pedidos')

@@ -44,6 +44,9 @@
 .Button:active{
     filter: brightness(80%)
 }
+.Button:hover{
+    filter: brightness(90%)
+}
 
 .Ball{
     width: 340px;
@@ -64,9 +67,7 @@
 }
 
 @media only screen and (min-width: 800px) {
-    .Container{
-      margin-top:150px;
-    }
+
     .ButtonsContainer{
         display: flex;
         flex-direction: row;
@@ -76,8 +77,8 @@
         max-width: 800px;
     }
     .Button{
-        height: 70px;
-        width: 140px;
+        height: 50px;
+        width: 300px;
         margin:20px;
     }
 }

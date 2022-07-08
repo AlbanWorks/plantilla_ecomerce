@@ -1,0 +1,26 @@
+.Button{
+    outline: none;
+    border: none;
+    margin:0;
+    background: none ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    text-shadow: inherit;
+}
+.Button:hover i{
+    font-size: 110%;
+}
+.Button:active i{
+    animation: shrink 1s  linear;
+    animation-duration: 0.3s;
+}
+.Copied{
+    font-size: 40%;
+}
+
+@keyframes shrink {
+    0%   {font-size: 100%}
+    100% {font-size: 40%}
+}

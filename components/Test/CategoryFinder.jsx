@@ -1,10 +1,14 @@
-import React from 'react'
+
+import React,{useEffect} from 'react'
+
 
 const CategoryFinder = () => {
-
+  useEffect(() => {
+    console.log(process.env.NEXT_PUBLIC_SALUDO);
+  }, [])
 return (
     <div >
-       loc
+       holas
     </div>
   )
 }

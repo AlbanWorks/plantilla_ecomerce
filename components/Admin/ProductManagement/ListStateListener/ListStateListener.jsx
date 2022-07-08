@@ -15,9 +15,12 @@ return (
         <span className={classes.Warning}>Error al Guardar</span>)
     :ListState === "local error"?(
         <span className={classes.Warning}>Corrija Todos Los Errores</span>)	
-    :ListState === "saving"?(
-        <Spinner/>)
-    :(<></>)  
+    :ListState === "saving"?
+    <Fragment>
+        <span className={classes.EstoPuedeTardar} >Esto puede tardar unos minutos</span>
+        <Spinner/>
+    </Fragment>  
+    :null 
     }
     </div>
   )

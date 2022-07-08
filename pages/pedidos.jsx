@@ -7,7 +7,7 @@ const pedidos = () => {
     return (
         <div className={classes.PageContainer} >
              <Head>
-                <title>Tiendagenerica-pedidos</title>
+                <title>Pedidos</title>
             </Head>
             <OrdersUI/>
         </div>

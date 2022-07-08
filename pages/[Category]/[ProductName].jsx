@@ -15,7 +15,7 @@ export default function ProductPageLoader() {
   return (
     <div className={classes.PageContainer}>
       <Head>
-        <title>Tiendagenerica-{Category}-{ProductName}</title>
+        <title>{Category}-{ProductName}</title>
       </Head>
       <Header/>
         {

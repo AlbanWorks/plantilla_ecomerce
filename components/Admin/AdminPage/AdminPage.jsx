@@ -6,7 +6,9 @@ import { handleLogoUpload, setStoreInfo } from '../../../firebase/FirestoreMetho
 import { signOut } from "firebase/auth";
 import { auth } from '../../../firebase/firebaseConfig';
 import Spinner from '../../Spinner/Spinner'
+import Input from './Input/Input'
 import LogoTool from './LogoTool/LogoTool'
+import ShowSavingState from './ShowSavingState/ShowSavingState'
 
 
 
@@ -16,44 +18,50 @@ const AdminPage = () => {
     const [PublicInfoFetched, setPublicInfoFetched] = useState(false)
     const [Name, setName] = useState("Nueva Tienda")
     const [Cellphone, setCellphone] = useState(123456)
+    const [Facebook, setFacebook] = useState("")
+    const [Instagram, setInstagram] = useState("")
     const [OldLogo, setOldLogo] = useState(false)
     const [NewLogo, setNewLogo] = useState(false)
     const [SavingState, setSavingState] = useState("not saved") 
     const router = useRouter() 
-
-    useEffect(() => {
-
-        console.log("rendereo");
-    
-    
-    })
-
-    useEffect(() => {
-     console.log("cambia old logo y se detecta desde arriba");
-    }, [OldLogo])
-    
     
     useEffect(() => {
         if(PublicInfo !== null){
             setName(PublicInfo.StoreName)
             setCellphone(PublicInfo.Cellphone)
+            setFacebook(PublicInfo.SocialMedia.facebook)
+            setInstagram(PublicInfo.SocialMedia.instagram)
             setOldLogo(PublicInfo.Logo)
             setPublicInfoFetched(true)
         }
     }, [PublicInfo])
 
-    const checkInputName = (target) => {
-        if(target.value ==="") target.className = classes.InputError
+    const checkName = (target) => {
+        if(target.value ==="" || target.value.length > 20) target.error= true
         else{
-            target.className = classes.Input
+            target.error = false
             setName(target.value)
         } 
     }
-    const checkInputCellphone = (target) => {
-        if(target.value ==="") target.className = classes.InputError
+    const checkCellphone = (target) => {
+        if(target.value ==="") target.error= true
         else {
-            target.className = classes.Input
+            target.error= false
             setCellphone(target.value)
+        }
+    }
+    const checkFacebook = (target) => {
+        if(target.value ==="") target.error= true
+        else {
+            target.error= false
+            setFacebook(target.value)
+        }
+    }
+    const checkInstagram = (target) => {
+        if(target.value ==="") target.error= true
+        else {
+            target.error= false
+            setInstagram(target.value)
         }
     }
     
@@ -61,7 +69,7 @@ const AdminPage = () => {
         e.preventDefault()
         setSavingState("saving")
         const logoUrl = await handleLogoUpload(OldLogo,NewLogo)
-        const Changes = await setStoreInfo(Name,Cellphone,logoUrl)
+        const Changes = await setStoreInfo(Name,Cellphone,Facebook,Instagram,logoUrl)
         if (Changes.err){
             if(Changes.err.code === "permission-denied")setSavingState("account_error")
             else setSavingState("error")
@@ -83,7 +91,7 @@ const AdminPage = () => {
 
 return (
     <Fragment>{
-        PublicInfoFetched ?
+    PublicInfoFetched ?
         <div className={classes.Container}>
             <header className={classes.TitleContainer}>
                 <h1 className={classes.Title}>{Name}</h1>
@@ -105,47 +113,37 @@ return (
             </button>
             <h3 className={classes.StoreInfo}>Información de la tienda</h3>
             <form className={classes.Form} onSubmit={(e)=>saveChanges(e)}>
-                <label className={classes.Label}>Nombre de la Tienda</label>
-                <input
-                    className={classes.Input} 
-                    type="text" 
-                    defaultValue={Name} 
-                    onChange={(e)=>checkInputName(e.target)}
+                <Input 
+                    Label={"Nombre de la Tienda"} 
+                    Value={Name} 
+                    alCambiar={(target)=>{checkName(target)}} 
+                    error={false}
                 />
-                <label className={classes.Label}>Teléfono sin Espacios (debe tener Whatsapp)</label>
-                <input
-                    className={classes.Input} 
-                    type="number" 
-                    defaultValue={Cellphone} 
-                    onChange={(e)=>checkInputCellphone(e.target)} 
+                <Input 
+                    Label={"Teléfono sin espacios, debe tener Whatsapp"} 
+                    Value={Cellphone} 
+                    alCambiar={(target)=>{checkCellphone(target)}} 
+                    error={false}
+                />
+                <Input 
+                    Label={"Facebook de la Tienda (opcional)"} 
+                    Value={Facebook} 
+                    alCambiar={(target)=>{checkFacebook(target)}} 
+                    error={false}
+                />
+                <Input 
+                    Label={"Instagram de la Tienda  (opcional)"} 
+                    Value={Instagram} 
+                    alCambiar={(target)=>{checkInstagram(target)}} 
+                    error={false}
                 />
                 <LogoTool setNewLogo={(photo)=>setNewLogo(photo)} OldLogo={OldLogo}/>
                 <button className={classes.SaveButton} >Guardar Cambios</button>
-                <div>{
-                    SavingState ==="saving" ?
-                    <div className={classes.SpinnerContainer}>
-                        <Spinner/>
-                    </div>
-                    :SavingState ==="saved" ?
-                    <div className={classes.ChangeStateContainer}>
-                        <h4 className={classes.ChangeStateSuccess}>Cambios Guardados</h4>
-                    </div>
-                    :SavingState ==="error" ?
-                    <div className={classes.ChangeStateContainer}>
-                        <h4 className={classes.ChangeStateError}>Error al Guardar...</h4>
-                    </div>
-                    :SavingState ==="account_error" ?
-                    <div className={classes.ChangeStateContainer}>
-                        <h4 className={classes.ChangeStateError}>Acceso denegado</h4>
-                        <p className={classes.ChangeStateErrorSubtitle}>intente cerrar sesión e ingresar con la cuenta adecuada, si el problema persiste comuníquese con nosotros</p>
-                    </div>
-                    :null
-                }
-                </div>
             </form>
+            <ShowSavingState SavingState={SavingState} />
             <div className={classes.Ball}/>         
         </div>
-        :
+    :
         <div className={classes.MainSpinnerContainer} >
             <Spinner/>
         </div>

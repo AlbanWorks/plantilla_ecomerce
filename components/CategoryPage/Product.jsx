@@ -19,16 +19,23 @@ const Product = ({LocalProduct}) => {
         setAmount(1)
         setTimeout(() => {
             //ver si el producto ya existe
-            const IndexProd = CartProducts.indexOf(product)
-            //si indexof da -1 no existe un producto igual
-            if( IndexProd === -1){
+            let isNew = true
+            let index 
+            for (const OldProd of CartProducts){
+                if(OldProd.ID === product.ID){
+                    isNew = false
+                    index = CartProducts.indexOf(OldProd)
+                    break
+                }
+            }
+            if( isNew){
                 //le creo una propiedad que indique cuantos productos hay del mismo tipo
                 product["amount"] = amount
                 setCartProducts([ ... CartProducts, product ])
             }
             else{
                 //el producto ya existe, solo le sumo ammont ++
-                CartProducts[IndexProd]["amount"] += amount 
+                CartProducts[index]["amount"] += amount 
                 setCartProducts([...CartProducts])
             }  
             setButtonText("¡Listo!")

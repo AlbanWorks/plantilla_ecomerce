@@ -9,7 +9,6 @@ const CategoryMenu = ({Fetch}) => {
    
     useEffect(() => {
         if(PublicInfo !== null){
-            console.log(PublicInfo.CategoryIndex);
             setCategories(PublicInfo.CategoryIndex)
         }
     }, [PublicInfo])

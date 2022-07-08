@@ -10,11 +10,11 @@
     align-items: center;
     justify-content: center;
     z-index: 2000;
-    font-family: var(--clearFont);
 }
 
 .Cart{
     background-color: rgb(247, 247, 247);
+    color: rgb(56, 56, 56);
     min-height: 400px;
     max-width: 500px;
     width: 90%;
@@ -39,6 +39,7 @@
     justify-content: space-evenly;
     height: 50px;
     margin-bottom: 5px;
+    font-size: 16px;
 }
 .ButtonVacia{
     outline: none;
