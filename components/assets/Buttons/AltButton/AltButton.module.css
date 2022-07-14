@@ -1,0 +1,65 @@
+.AltButtonV1{
+    outline:none;
+    background:none;
+    background-color: var(--color1);
+    box-shadow: 0px 2px 5px var(--backgroundDark);
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: var(--fontColor2);
+}
+.AltButtonV1:active{
+    filter: brightness(80%)
+}
+.AltButtonV1:hover{
+    filter: brightness(90%)
+}
+
+.AltButtonV2{
+    outline:none;
+    background:none;
+    background-color: var(--color2);
+    box-shadow: 0px 2px 5px var(--backgroundDark);
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: var(--fontColor1);
+}
+.AltButtonV2:active{
+    filter: brightness(80%)
+}
+.AltButtonV2:hover{
+    filter: brightness(90%)
+}
+
+.AltButtonV3{
+    outline:none;
+    background:none;
+    background-color: var(--color3);
+    box-shadow: 0px 2px 5px var(--backgroundDark);
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: var(--fontColor2);
+}
+.AltButtonV3:active{
+    filter: brightness(80%)
+}
+.AltButtonV3:hover{
+    filter: brightness(90%)
+}

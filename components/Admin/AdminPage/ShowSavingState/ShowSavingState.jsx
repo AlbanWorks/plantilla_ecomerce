@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import classes from './ShowSavingState.module.css'
-import Spinner from '../../../Spinner/Spinner'
+import Spinner from '../../../assets/Spinner/Spinner'
 
 const ShowSavingState = ({SavingState}) => {
 

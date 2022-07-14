@@ -1,0 +1,35 @@
+.Header{
+    background-image: linear-gradient(45deg, var(--color1), var(--color1Light));
+    box-shadow: 0 0 10px var(--backgroundDark);
+    height: 70px;
+    width: 100%;
+    position:fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 10;
+}
+.Title{
+    margin:0;
+    margin-left: 10px;
+    font-size: 25px;
+    color: var(--fontColor1);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    left: 5px;
+}
+.LogoContainer{
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+}
+.ShareButtonContainer{
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fontColor1);
+    font-size: 30px;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+    

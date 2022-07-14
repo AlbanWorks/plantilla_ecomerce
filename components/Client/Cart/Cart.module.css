@@ -1,0 +1,48 @@
+
+.CartContainer{
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.Cart{
+    background-color: var(--background);
+    color:  var(--fontColor1);
+    min-height: 400px;
+    max-width: 500px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 3px;
+}
+.Titulo{
+    text-align: center;
+}
+.ProductBill{
+    background-color:  var(--backgroundLight);
+    width: 100%;
+    min-height: 250px;
+}
+.Total{
+    margin:20px;
+}
+.Botonera{
+    display: flex;
+    justify-content: space-evenly;
+    height: 50px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.ButtonContainer{
+    min-width: 100px;
+    flex-grow: 1;
+    margin: 0 5px 0 5px
+}

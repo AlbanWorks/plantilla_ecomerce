@@ -1,5 +1,5 @@
-import './styles/global.css'
-import './styles/storePersonalization.css'
+import 'generalStyles/normalize.css'
+import 'generalStyles/storePersonalization.css'
 import Head from 'next/head'
 import DataProvider from "../provider"
 import Script from 'next/script'

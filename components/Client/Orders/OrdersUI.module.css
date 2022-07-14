@@ -1,0 +1,61 @@
+.PageContainer{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   background-color:  var(--backgroundDark) ;
+   min-height: 100vh;
+}
+.Container{
+    width: 100%;
+    max-width: 500px;
+    background-color:  var(--background);
+    display: flex;
+    flex-direction: column;
+}
+.AditionalDataContainer{
+    height: 200px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.Direction{
+    margin:15px 5px 10px 5px;
+    font-size: 18px;
+    color: var(--fontColor1);
+    text-shadow: 0 0 5px  var(--backgroundDark);
+
+}
+.Indications{
+    margin:15px 5px 10px 5px;
+}
+.InputText{
+    font-family: var(--clearFont);
+    outline: none;
+    border:none;
+    height: 40px;
+    border-radius: 50px;
+    width: 95%;
+    max-width: 600px;
+    margin:2px;
+    padding-left: 10px;
+    border: 1px solid var(--color1Light);
+    box-shadow: 0 0 8px var(--backgroundDark);
+}
+.InputText:focus{
+    box-shadow: 0 0 6px var(--backgroundDark);
+} 
+.Botonera{
+    font-family: var(--clearFont);
+    display: flex;
+    align-items: center;
+    height: 150px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding:10px ;
+}
+.ButtonContainer{
+    height: 40px;
+    width: 90%;
+    max-width: 500px;
+    margin: 10px;
+}

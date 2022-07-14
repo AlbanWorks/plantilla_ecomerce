@@ -1,0 +1,44 @@
+.Container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 0 4px 0 ;
+    padding-left: 10px;
+    border-bottom: 1px solid  var(--background);
+}
+
+.Botonera{
+    min-width: 110px;
+    margin-bottom: 3px;
+    display: flex;
+}
+
+.Button{
+    outline: none;
+    border: none;
+    width: 20px;
+    font-size: 19px;
+    font-weight: 600;
+    background: none;
+    color: var(--color1);
+    margin: 0 8px 0 8px;
+    border-radius: 2px;
+}
+
+.Button:active{
+    color: var(--color1Dark);
+}
+.ButtonTrash{
+    outline: none;
+    margin: 0 8px 0 8px;
+    border: none;
+    width: 25px;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color3);
+}
+.ButtonTrash:active{
+    color:var(--color3Dark);
+}

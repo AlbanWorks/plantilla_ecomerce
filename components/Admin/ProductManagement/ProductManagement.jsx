@@ -2,7 +2,7 @@ import {React, useState,Fragment} from 'react'
 import {getCollection, setProduct, addProduct, deleteProduct} from "../../../firebase/FirestoreMethods"
 import classes from './ProductManagement.module.css'
 import { checkInput, checkList, SaveChanges, handleErrorStyles} from './ProductManagementMethods'
-import Spinner from '../../Spinner/Spinner'
+import Spinner from '../../assets/Spinner/Spinner'
 import DeleteButton from './DeleteButton/DeleteButton'
 import StockSlider from './StockSlider/StockSlider'
 import ListStateListener from './ListStateListener/ListStateListener'

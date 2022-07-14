@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React,{useState} from 'react'
-import classes from '../styles/pageStyles.module.css'
+import classes from 'generalStyles/pageStyles.module.css'
 import CategoryManagement from "../../components/Admin/CategoryManagement/CategoryManagement"
 import Signin from '../../components/Admin/Signin/Signin'
 

@@ -1,0 +1,26 @@
+.CategoryPage{
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px ;
+    min-height: 100vh;
+    padding-bottom: 35px;
+    
+    box-sizing: border-box;
+}
+
+.SpinnerContainerPF{
+    height: 50vh;
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    .CategoryPage{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .SpinnerContainerPF{
+        height: auto;
+    }
+  }

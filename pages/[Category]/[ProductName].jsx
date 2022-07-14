@@ -1,10 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import classes from '../styles/pageStyles.module.css'
-import ProductPage from "../../components/ProductPage/ProductPage"
-import Header from "../../components/Headers/Header"
-import Cart from '../../components/Cart/Cart'
+import classes from 'generalStyles/pageStyles.module.css'
+import ProductPage from "components/Client/ProductPage/ProductPage"
+import Header from "components/assets/Headers/Header/Header"
+import Cart from 'components/Client/Cart/Cart'
 
 export default function ProductPageLoader() {
  

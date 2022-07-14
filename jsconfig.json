@@ -1,0 +1,6 @@
+//esta configuracion me permite usar rutas absolutas y no relativas para importar modulos.
+{
+    "compilerOptions": {
+      "baseUrl": "."
+    }
+}

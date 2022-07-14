@@ -1,5 +1,5 @@
 import React from 'react'
-import Spinner from '../../../Spinner/Spinner'
+import Spinner from '../../../assets/Spinner/Spinner'
 
 const SavingStateAlert = ({SavingState, Errors}) => {
 

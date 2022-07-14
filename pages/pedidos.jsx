@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import classes from './styles/pageStyles.module.css'
-import OrdersUI from '../components/Orders/OrdersUI'
+import classes from 'generalStyles/pageStyles.module.css'
+import OrdersUI from 'components/Client/Orders/OrdersUI'
 
 const pedidos = () => { 
     

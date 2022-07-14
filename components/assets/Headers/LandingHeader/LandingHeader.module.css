@@ -1,0 +1,53 @@
+.Header{
+    background-image: linear-gradient(45deg, var(--color1), var(--color1Light));
+    height: 115px;
+    width: 100%;
+    z-index: 200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Title{
+    margin:0;
+    margin-left: 10px;
+    font-size: 30px;
+    color: var(--fontColor1);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    z-index: 500;
+}
+.LogoContainer{
+    margin-left: 15px;
+}
+.LogoSubContainer{
+    width: 90px;
+    height: 90px;
+}
+.AncorContainer{
+   width: 300px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+.Ancor{
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Ancor:hover{
+    font-size: 42px;
+}
+.Ancor:active{
+    font-size: 42px;
+}
+@media only screen and (min-width: 800px) {
+    .LogoContainer{
+        top: 0px;
+        width:auto;
+        padding: 7px;
+        justify-content: flex-start;
+    }
+}

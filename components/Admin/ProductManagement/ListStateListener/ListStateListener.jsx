@@ -1,5 +1,5 @@
 import {React,Fragment} from 'react'
-import Spinner from '../../../Spinner/Spinner'
+import Spinner from 'components/assets/Spinner/Spinner'
 import classes from './ListState.module.css'
 
 const ListStateListener = ({ListState}) => {

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+:root{
+    /* Colores de la tienda (diseños basados en 3 colores complementarios) */
+    
+    --color1: #0ec8e9;
+    --color1Light: #59ddf5;
+    --color1Dark: #13bad8;
+
+    --color2: #ee244e;
+    --color2Light: #ee4b6b;
+    --color2Dark: #d4193f;
+
+    --color3: rgb(216, 216, 216);
+    --color3Light: rgb(231, 231, 231);
+    --color3Dark: rgb(196, 196, 196);
+
+    --background: rgb(34, 34, 34);
+    --backgroundLight: rgb(59, 59, 59);
+    --backgroundDark: rgb(10, 10, 10);
+
+    --fontColor1: rgb(255, 255, 255);
+    --fontColor2: rgb(34, 34, 34);
+  
+    /* Fuentes de la tienda */ 
+  
+    font-family: 'Ubuntu', sans-serif;/* Fuente 1 por defecto */ 
+    --clearFont:'verdana'; /* Fuente que se deje leer */ 
+    --FancyFont:'sans-serif'; /* Fuente Artistica */ 
+  }
+  

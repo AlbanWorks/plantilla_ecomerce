@@ -1,0 +1,55 @@
+.MainHeaderContainer{
+    width: 100%;
+}
+.MainHeader{
+    background-image: linear-gradient(45deg, var(--color1), var(--color1Light));
+    height: 115px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+.Wave{
+    filter: drop-shadow(0 -4px 10px var(--color1));
+}
+.MainHeaderTitle{
+    position: absolute;
+    margin:0;
+    margin-left: 10px;
+    font-size: 30px;
+    color: var(--fontColor1);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 500;
+}
+.MainLogoContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    top: 80px;
+}
+.MainLogoSubContainer{
+    width: 100px;
+    height: 100px;
+}
+.ShareButtonContainer{
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fontColor2);
+    font-size: 30px;
+    text-shadow: 2px 3px 5px var(--backgroundDark);
+}
+@media only screen and (min-width: 1300px) {
+    .MainNavbarTitle{
+        font-size: 30px;
+    }
+    .MainLogoContainer{
+        top: 0px;
+        width:auto;
+        padding: 7px;
+        justify-content: flex-start;
+    }
+}

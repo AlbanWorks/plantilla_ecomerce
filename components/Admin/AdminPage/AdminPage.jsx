@@ -5,10 +5,11 @@ import { useRouter } from 'next/router'
 import { handleLogoUpload, setStoreInfo } from '../../../firebase/FirestoreMethods'
 import { signOut } from "firebase/auth";
 import { auth } from '../../../firebase/firebaseConfig';
-import Spinner from '../../Spinner/Spinner'
-import Input from './Input/Input'
+import Spinner from '../../assets/Spinner/Spinner'
+import Input from '../../assets/Inputs/Input/Input'
 import LogoTool from './LogoTool/LogoTool'
 import ShowSavingState from './ShowSavingState/ShowSavingState'
+import Button from 'components/assets/Buttons/Button/Button'
 
 
 
@@ -95,22 +96,28 @@ return (
         <div className={classes.Container}>
             <header className={classes.TitleContainer}>
                 <h1 className={classes.Title}>{Name}</h1>
-                <button 
-                    className={classes.SignoutButton} 
-                    onClick={()=> signOutUser()}>
-                        Cerrar Sesión
-                </button>
+                <div className={classes.SignoutButtonContainer}>
+                    <Button
+                        variant={2} 
+                        text={"Cerrar Sesión"} 
+                        Click={()=> signOutUser()}
+                    /> 
+                </div>
             </header>
-            <button 
-                className={classes.Button}
-                onClick={()=> router.push("/admin/gestionar_categorias")}>
-                    Administrar Categorías
-            </button>
-            <button
-                className={classes.Button} 
-                onClick={()=> router.push("/admin/gestionar_productos")}>
-                    Administrar Productos
-            </button>
+            <div className={classes.ButtonContainer}>
+                <Button 
+                    variant={2}
+                    text={"Administrar Categorías"} 
+                    Click={()=> router.push("/admin/gestionar_categorias")}
+                /> 
+            </div>
+            <div className={classes.ButtonContainer}>
+                <Button 
+                    variant={2}
+                    text={"Administrar Productos"} 
+                    Click={()=> router.push("/admin/gestionar_productos")}
+                /> 
+            </div>
             <h3 className={classes.StoreInfo}>Información de la tienda</h3>
             <form className={classes.Form} onSubmit={(e)=>saveChanges(e)}>
                 <Input 
@@ -138,10 +145,14 @@ return (
                     error={false}
                 />
                 <LogoTool setNewLogo={(photo)=>setNewLogo(photo)} OldLogo={OldLogo}/>
-                <button className={classes.SaveButton} >Guardar Cambios</button>
+                <div className={classes.SaveButtonContainer}>
+                    <Button 
+                        variant={1}
+                        text={"Guardar Cambios"} 
+                    /> 
+                </div>
             </form>
-            <ShowSavingState SavingState={SavingState} />
-            <div className={classes.Ball}/>         
+            <ShowSavingState SavingState={SavingState} />         
         </div>
     :
         <div className={classes.MainSpinnerContainer} >

@@ -3,7 +3,8 @@ import {signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut} from "
 import classes from './Signin.module.css'
 import { owner } from '../../../firebase/routes';
 import { auth } from '../../../firebase/firebaseConfig';
-import Spinner from '../../Spinner/Spinner'
+import Spinner from 'components/assets/Spinner/Spinner'
+import Button from 'components/assets/Buttons/Button/Button'
 
 const Signin = ({setLogin}) => { 
     const [showUI, setshowUI] = useState(false)
@@ -40,7 +41,9 @@ const Signin = ({setLogin}) => {
       <div className={classes.Container}>
          <h2 className={classes.Title}>Gestión de Tiendas</h2>
         <h4 className={classes.SubTitle}>Desde aquí podrás gestionar tu tienda. <br /><br /><b> Ingresa siempre usando el mismo correo</b></h4>
-          <button className={classes.Button} onClick={()=>signIn()}>Ingresar</button>
+          <div className={classes.ButtonContainer}>
+            <Button text={"Ingresar"} variant={2} Click={()=>signIn()}/>
+          </div>
         <h5 className={classes.Info}>Por cualquier duda comunicate con nosotros</h5>
       </div>
       :

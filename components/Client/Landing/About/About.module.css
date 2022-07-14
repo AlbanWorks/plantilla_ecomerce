@@ -1,0 +1,17 @@
+.Container{
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 100px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.About{
+    margin: 0;
+    padding: 50px 30px 50px 30px;
+    max-width: 1150px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--fontColor1);
+    font-size: 23px;
+    text-align: center;
+}

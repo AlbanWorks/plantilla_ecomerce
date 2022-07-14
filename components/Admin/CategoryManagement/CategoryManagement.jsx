@@ -2,9 +2,10 @@
 import React,{useState, useEffect, useContext, Fragment} from 'react'
 import { DataContext } from '../../../provider'
 import classes from './CategoryManagement.module.css'
-import  Spinner  from "../../Spinner/Spinner"
+import  Spinner  from "../../assets/Spinner/Spinner"
 import SavingStateAlert from './SavingStateAlert/SavingStateAlert'
 import { getInfo, addCategory, deleteCategory } from '../../../firebase/FirestoreMethods'
+import Button from 'components/assets/Buttons/Button/Button'
 
 const CategoryManagement = () => {
 
@@ -27,7 +28,7 @@ const CategoryManagement = () => {
 
 
     const addLocalCategory = () => {
-        const newCategory = {Name:"Nueva Categoía", isNew:true, delete: false , id: new Date().getTime()}
+        const newCategory = {Name:"Nueva Categoría", isNew:true, delete: false , id: new Date().getTime()}
         setCategories([...Categories, newCategory])
     }
 
@@ -146,8 +147,20 @@ const CategoryManagement = () => {
                     </div>
                 )}
             </div>
-            <button onClick={()=>addLocalCategory()} className={classes.addButton}>Agregar Categoría</button>
-            <button onClick={()=>saveChanges(Categories)} className={classes.saveButton}>Guardar Cambios</button>
+            <div className={classes.addButtonContainer}>
+                <Button 
+                    text={"Agregar Categoría"} 
+                    variant={1}
+                    Click={()=>addLocalCategory()}
+                /> 
+            </div>
+            <div className={classes.saveButtonContainer}>
+                <Button 
+                variant={2}
+                    text={"Guardar Cambios"} 
+                    Click={()=>saveChanges(Categories)}
+                /> 
+            </div>
         </Fragment>
         :
             <div>

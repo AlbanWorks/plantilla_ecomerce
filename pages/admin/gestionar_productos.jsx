@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React,{useState} from 'react'
-import classes from '../styles/pageStyles.module.css'
+import classes from 'generalStyles/pageStyles.module.css'
 import ProductManagement from "../../components/Admin/ProductManagement/ProductManagement"
 import Signin from '../../components/Admin/Signin/Signin'
 
